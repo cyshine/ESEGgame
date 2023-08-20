@@ -1,0 +1,193 @@
+h1 {
+    color: blue;
+    grid-column: 1 / span 2;
+}
+
+table { 
+	border-collapse: collapse; 
+	}
+
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+	background: #eee; 
+	}
+
+th { 
+	background: #3498db; 
+	color: white; 
+	font-weight: bold; 
+	}
+
+td, th { 
+	border: 1px solid #ccc; 
+	text-align: left; 
+	font-size: 18px;
+	}
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	table { 
+	  	width: 100%; 
+	}
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		/* Label the data */
+		content: attr(data-column);
+
+		color: #000;
+		font-weight: bold;
+	}
+
+}
+
+body {
+    margin: 10px;
+    display: grid;
+    grid-gap: 2px;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 0.1fr 0.8fr 0.1fr;
+}
+
+.tabuleiro {
+    display: grid;
+    grid-gap: 6px;
+    grid-template-columns: repeat(16, [col] 80px ) ;
+    grid-template-rows: repeat(8, [row] 80px  );
+    background-color: #fff;
+    color: #444;
+}
+
+.box {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 100%;
+    
+    margin = none;
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.box .box {
+    #background-color: #ccc;
+    color: #444;
+}
+
+
+.box .player {
+    #background-color: #FF494D;
+    color: #444;
+    padding: 0px;
+    #padding-right: 10px;
+    #padding-left: 15px;
+}
+
+.button {
+  position: relative;
+  background-color: #004677;
+  border: none;
+  margin-top: 20px;
+  font-size: 28px;
+  color: #FFFFFF;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.button:after {
+  content: "";
+  background: #6690AD;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px!important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+
+img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+#game{
+
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: 1fr 2fr;
+}
+
+#pontos{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#playerInfo{
+    grid-column: 1 / span 2;
+}
+
+#bottom_part{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#botoes{
+    grid-column: 1 / span 3;
+}

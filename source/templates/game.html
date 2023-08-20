@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='css/style.css') }}">
+        <title>ESEG - A Faculdade do grupo Etapa</title>
+    </head>
+    <body>
+        <h1>Programação de agente autônomo em um ambiente fechado</h1>
+       
+        <div class="tabuleiro">
+
+        </div>
+
+        <div class="tabela_usuarios">
+
+        </div>
+
+        <div class="botoes">
+            <button class="button" onclick='newGame()'>Novo Jogo! [n]</button>
+            <button class="button" onclick='nextRound()'>Calcula próximo turno [c]</button>
+            <button class="button" onclick='executeRound()'>Executa ações [e]</button>
+        </div>
+
+        
+        
+        <div id="current_url" style="display:none;">{{ ngrok_url }}</div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="{{ url_for('static',filename='js/codes.js') }}"></script>
+
+    </body>
+</html>

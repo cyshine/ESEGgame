@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>ESEG - A Faculdade do grupo Etapa</title>
+        <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='css/style.css') }}">
+    </head>
+    <body>
+        <h1>Programação de agente em um ambiente</h1>
+
+        <div id="game">
+            
+        <fieldset id="instrucoes">
+            <legend>Instruções</legend>
+
+            <p> Neste jogo temos 2 estados possíveis do jogador: Modo exploração e Modo batalha</p>
+
+            <p> Distribua pontos para as ações a seguir pensando nestes dois estados,
+                de forma que o jogador agirá de forma diferente entro de cada um deles.</p>
+            
+            <p> Observe que as ações com maiores pontuações terão maior chance de ocorrerem e
+                devem ser priorizadas de acordo com o estado do jogador.
+            </p>
+
+            <p> As ações "Busca prêmio" e "Busca inimigo" são especiais.</p>
+
+            <p> Quando estas ações são executadas ocorre o aumento da chance de 
+                movimento na direção mais do prêmio e aumento da chance de ataque 
+                na direção do inimigo mais próximo, respectivamente.
+            </p>
+
+            </p> Na saída do modo de batalha as probabilidades de ataque voltam ao padrão.
+            </p>
+            
+        </fieldset>
+
+        <div id="gameform">
+            <fieldset id="pontos">
+                <legend>Ficha do jogador</legend>
+
+                <div id="playerInfo">
+                    <label for="nome_aluno">
+                    Nome do aluno
+                    </label>
+
+                    <input name="nome_aluno" id="nome_aluno" placeholder="Nome do aluno">
+                   
+                </div>
+                
+                <fieldset id="explora">
+                    <legend>Modo de exploração</legend>
+                    
+                    <label for="explora_move_cima"> Mover para cima</label><br>
+                    <button onclick="decrement('explora_move_cima')">-</button>
+                    <input id="explora_move_cima" type="number" min="0" max="10" placeholder="5" value="5">
+                    <button onclick="increment('explora_move_cima')">+</button>
+                    
+                    <br>
+
+                    <label for="explora_move_baixo"> Mover para baixo</label><br>
+                    <button onclick="decrement('explora_move_baixo')">-</button>
+                    <input id="explora_move_baixo" type="number" min="0" max="10" placeholder="5" value="5">
+                    <button onclick="increment('explora_move_baixo')">+</button>
+
+                    <br>
+
+                    <label for="explora_move_esquerda"> Mover para esquerda</label><br>
+                    <button onclick="decrement('explora_move_esquerda')">-</button>
+                    <input id="explora_move_esquerda" type="number" min="0" max="10" placeholder="5" value="5">
+                    <button onclick="increment('explora_move_esquerda')">+</button>
+
+                    <br>
+
+                    <label for="explora_move_direita"> Mover para direita</label><br>
+                    <button onclick="decrement('explora_move_direita')">-</button>
+                    <input id="explora_move_direita" type="number" min="0" max="10" placeholder="5" value="5">
+                    <button onclick="increment('explora_move_direita')">+</button>
+
+                    <br>
+
+                    <label for="explora_ataca"> Ataca</label><br>
+                    <button onclick="decrement('explora_ataca')">-</button>
+                    <input id="explora_ataca" type="number" min="0" max="10" placeholder="5" value="5">
+                    <button onclick="increment('explora_ataca')">+</button>
+                    
+                    <br>
+
+                    <label for="explora_defende"> Defende</label><br>
+                    <button onclick="decrement('explora_defende')">-</button>
+                    <input id="explora_defende" type="number" min="0" max="10" placeholder="5" value="5">
+                    <button onclick="increment('explora_defende')">+</button>
+
+                    <br>
+
+                    <label for="explora_busca_premio"> Busca prêmio</label><br>
+                    <button onclick="decrement('explora_busca_premio')">-</button>
+                    <input id="explora_busca_premio" type="number" min="0" max="10" placeholder="5" value="5">
+                    <button onclick="increment('explora_busca_premio')">+</button>
+
+                    <br>
+
+                    <label for="explora_busca_inimigo"> Busca inimigo</label><br>
+                    <button onclick="decrement('explora_busca_inimigo')">-</button>
+                    <input id="explora_busca_inimigo" type="number" min="0" max="10" placeholder="5" value="5">
+                    <button onclick="increment('explora_busca_inimigo')">+</button>
+
+                    <br>
+
+
+
+                </fieldset>
+
+
+                <fieldset id="batalha">
+                    <legend>Modo de batalha</legend>
+                    <label for="batalha_move_cima"> Mover para cima</label><br>
+                    <button onclick="decrement('batalha_move_cima')">-</button>
+                    <input id="batalha_move_cima" type="number" min="0" max="10" placeholder="5" value="5">
+                    <button onclick="increment('batalha_move_cima')">+</button>
+                    
+                    <br>
+
+                    <label for="batalha_move_baixo"> Mover para baixo</label><br>
+                    <button onclick="decrement('batalha_move_baixo')">-</button>
+                    <input id="batalha_move_baixo" type="number" min="0" max="10" placeholder="5" value="5">
+                    <button onclick="increment('batalha_move_baixo')">+</button>
+
+                    <br>
+
+                    <label for="batalha_move_esquerda"> Mover para esquerda</label><br>
+                    <button onclick="decrement('batalha_move_esquerda')">-</button>
+                    <input id="batalha_move_esquerda" type="number" min="0" max="10" placeholder="5" value="5">
+                    <button onclick="increment('batalha_move_esquerda')">+</button>
+
+                    <br>
+
+                    <label for="batalha_move_direita"> Mover para direita</label><br>
+                    <button onclick="decrement('batalha_move_direita')">-</button>
+                    <input id="batalha_move_direita" type="number" min="0" max="10" placeholder="5" value="5">
+                    <button onclick="increment('batalha_move_direita')">+</button>
+
+                    <br>
+
+                    <label for="batalha_ataca"> Ataca</label><br>
+                    <button onclick="decrement('batalha_ataca')">-</button>
+                    <input id="batalha_ataca" type="number" min="0" max="10" placeholder="5" value="5">
+                    <button onclick="increment('batalha_ataca')">+</button>
+                    
+                    <br>
+
+                    <label for="batalha_defende"> Defende</label><br>
+                    <button onclick="decrement('batalha_defende')">-</button>
+                    <input id="batalha_defende" type="number" min="0" max="10" placeholder="5" value="5">
+                    <button onclick="increment('batalha_defende')">+</button>
+
+                    <br>
+
+                    <label for="batalha_busca_premio"> Busca prêmio</label><br>
+                    <button onclick="decrement('batalha_busca_premio')">-</button>
+                    <input id="batalha_busca_premio" type="number" min="0" max="10" placeholder="5" value="5">
+                    <button onclick="increment('batalha_busca_premio')">+</button>
+
+                    <br>
+
+                    <label for="batalha_busca_inimigo"> Busca inimigo</label><br>
+                    <button onclick="decrement('batalha_busca_inimigo')">-</button>
+                    <input id="batalha_busca_inimigo" type="number" min="0" max="10" placeholder="5" value="5">
+                    <button onclick="increment('batalha_busca_inimigo')">+</button>
+
+                    <br>
+                </fieldset>
+
+            <div id="bottom_part">
+                <button class="button" onclick='send_data()'>Enviar!</button>
+
+                <div id="player_info">
+                    <label for="div_info">Seu avatar:</label>
+                    <div id="div_info"></div>
+                </div>
+
+            </div>
+
+            </fieldset>
+        
+        </div> 
+        
+        <div id="current_url" style="display:none;">{{ ngrok_url }}</div>
+        <script>
+            function increment(field) {
+                document.getElementById(field).stepUp();
+            }
+            function decrement(field) {
+                document.getElementById(field).stepDown();
+            }
+        </script>
+            
+        <script src="{{ url_for('static',filename='js/player_code.js') }}"></script>
+    </body>
+</html>
